@@ -9,13 +9,13 @@ module Capybara
 
       def wait_until_ready
         return unless angular_app?
-        sleep 0.1
+        sleep 0.5
         setup_ready
         start = Time.now
         until ready?
           timeout! if timeout?(start)
           setup_ready if page_reloaded_on_wait?
-          sleep(0.1)
+          sleep(0.5)
         end
       end
 
